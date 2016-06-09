@@ -1,0 +1,37 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    enlargelimits=false,
+    xmin=0, xmax=20.0,
+    ymin=0, ymax=4.0,
+    height=4.0cm, 
+    width=20.0cm,
+]
+\addplot[
+    only marks,
+    color = black,
+    mark size=0.03cm]
+table[x = x, y = y,col sep=comma]
+{dados1.dat};
+
+
+\addplot[
+    only marks,
+    color = black,
+    mark size=0.03cm]
+table[x = x, y = y,col sep=comma]
+{dados2.dat};
+
+\draw [black,dashed] 
+(axis cs:7,0) -- (axis cs:7,4.0);
+
+\end{axis}
+\end{tikzpicture}
+\end{document}
